@@ -1,0 +1,4 @@
+
+requests==2.31.0         # For calling the xAI API
+python-dotenv==1.0.1     # For loading environment variables from .env
+requests_oauthlib==1.3.1
