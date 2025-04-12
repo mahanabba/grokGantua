@@ -75,12 +75,8 @@ Poll Process:
 - After 24 hours, use the winning option for the next segment.  
 - Ties or no votes default to option 1.
 
-Starting Segment:  
-You are Lil X, aboard the SpaceX craft. A strange signal hums from an asteroid. Time bends—Earth years slip by. What now?  
-1. Fly closer to explore.  
-2. Analyze from the ship.  
-3. Push onward to Earth.  
-Poll Title: "Vote on X's Next Move"
+the output for the the choices will be given in format option 1: option 2: option:3 however when 
+they are actually presented in the poll they are less than 25 characters
 
 Content Rules:  
 - Keep all material appropriate for X’s community standards.",
