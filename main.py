@@ -108,7 +108,7 @@ def get_poll_results(tweet_id):
 
 def main():
     # Set initial parameters.
-    poll_duration_current = 30  # starting poll duration in minutes
+    poll_duration_current = 1  # starting poll duration in minutes
     
     poll_duration_increment = random.randint(5,180)  # each post's poll duration increases by this many minutes
     previous_data = None
@@ -118,7 +118,7 @@ def main():
         "You are an AI narrating an interactive, never-ending 'Choose Your Own Adventure' story. "
         "The protagonist, X, stranded on Mars, embarks on a mysterious journey back to Earth that subtly hints at a cosmic secret called 'grokGantua'. "
         "Craft a 150-225 word narrative in second-person perspective describing X's challenges and enigmatic discoveries. poll options must be 25 characters max"
-        "End with three numbered choices labeled 'Option 1:', 'Option 2:' and 'Option 3:' for X's next move. a poll option can never be more than 25 characters. the options 1 2 and 3 can not be over 25 characters long."
+        "End with three numbered choices labeled 'Option 1:', 'Option 2:' and 'Option 3:' for X's next move. a poll option can never be more than 25 characters. the options 1 2 and 3 can not be over 25 characters long. use one word if needed"
     )
 
     # Infinite loop that never ends.
@@ -131,7 +131,7 @@ def main():
                 winning_option = previous_data.get("poll_options", ["Option 1 missing"])[0]
             prompt = (
                 f"Continue the adventure narrative using the previous poll's winning option: '{winning_option}'. "
-                "Craft a new 150-300 word segment in second-person perspective that builds on the previous story and ends "
+                "Craft a new 150-225 word segment in second-person perspective that builds on the previous story and ends "
                 "with three new choices labeled 'Option 1:', 'Option 2:' and 'Option 3:' for X's next move."
             )
         
