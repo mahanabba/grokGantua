@@ -9,22 +9,24 @@ import re
 
 
 
+import re
+
 def extract_poll_options(story_text):
     """
-    Extracts up to 3 poll options from a story.
-    Looks for 'Option 1:', 'Option 2:', etc., but only keeps the content after the colon.
-    Limits to 25 characters as per X poll API.
+    Extracts up to 3 clean poll options from a story.
+    - Strips "Option X:" labels
+    - Clips each to 25 characters max (required by X API)
     """
     options = []
-    # Use regex to find lines like "Option 1: Go left"
     matches = re.findall(r"Option \d:\s*(.+)", story_text)
     
     for i in range(3):
         if i < len(matches):
-            clean = matches[i].strip()[:25]  # clip to 25 chars
-            options.append(clean)
+            clean = matches[i].strip()
+            clipped = clean[:25]  # hard limit for X poll API
+            options.append(clipped)
         else:
-            options.append(f"Choice {i+1}")  # fallback label
+            options.append(f"Choice {i+1}")  # fallback short default
     return options
 # Load environment variables from .env
 load_dotenv()
