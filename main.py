@@ -24,7 +24,7 @@ def extract_poll_options(story_text):
             clipped = clean[:20]  # hard limit for X poll API
             options.append(clipped)
         else:
-            options.append(f"Choice {i+1}")  # fallback short default
+            options.append(f"Choice {i+1}.strip()[:20]")  # fallback short default
     return options
 # Load environment variables from .env
 load_dotenv()
