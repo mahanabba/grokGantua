@@ -44,7 +44,7 @@ ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 X_API_CREATE_POST_URL = "https://api.x.com/2/tweets"
 
 def generate_story(prompt):
-    "You are a highly intelligent AI story generator that creates engaging, interactive 'Choose Your Own Adventure' narratives.",
+    "You are a highly intelligent AI story generator that creates engaging, interactive 'Choose Your Own Adventure' narratives. the options given can never be more than 25 characters",
         },
         {"role": "user", "content": prompt},
     ]
