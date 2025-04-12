@@ -5,7 +5,27 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from requests_oauthlib import OAuth1
 import requests
+import re
 
+
+
+def extract_poll_options(story_text):
+    """
+    Extracts up to 3 poll options from a story.
+    Looks for 'Option 1:', 'Option 2:', etc., but only keeps the content after the colon.
+    Limits to 25 characters as per X poll API.
+    """
+    options = []
+    # Use regex to find lines like "Option 1: Go left"
+    matches = re.findall(r"Option \d:\s*(.+)", story_text)
+    
+    for i in range(3):
+        if i < len(matches):
+            clean = matches[i].strip()[:25]  # clip to 25 chars
+            options.append(clean)
+        else:
+            options.append(f"Choice {i+1}")  # fallback label
+    return options
 # Load environment variables from .env
 load_dotenv()
 
@@ -45,21 +65,7 @@ def generate_story(prompt):
     
     return completion.choices[0].message.content.strip()
 
-def extract_poll_options(story_text):
-    """
-    Scan the generated story for poll options.
-    Assumes the story ends with lines labeled "Option 1:", "Option 2:" and "Option 3:".
-    """
-    options = []
-    for i in range(1, 4):
-        key = f"Option {i}:"
-        if key in story_text:
-            # Extract the text immediately after the option label (first line) and limit to 50 characters.
-            option_line = story_text.split(key)[1].split("\n")[0].strip()
-            options.append(option_line[:50])
-        else:
-            options.append(f"Choice {i} missing")
-    return options
+
 
 def post_tweet_with_poll(tweet_text, poll_options, poll_duration_minutes):
     """
