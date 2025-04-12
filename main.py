@@ -118,7 +118,7 @@ def main():
     prompt = (
         "You are an AI narrating an interactive, never-ending 'Choose Your Own Adventure' story. "
         "The protagonist, X, stranded on Mars, embarks on a mysterious journey back to Earth that subtly hints at a cosmic secret called 'grokGantua'. "
-        "Craft a 150-300 word narrative in second-person perspective describing X's challenges and enigmatic discoveries. "
+        "Craft a 150-225 word narrative in second-person perspective describing X's challenges and enigmatic discoveries. poll options must be 25 characters max"
         "End with three numbered choices labeled 'Option 1:', 'Option 2:' and 'Option 3:' for X's next move."
     )
 
