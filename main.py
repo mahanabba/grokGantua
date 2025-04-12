@@ -9,8 +9,6 @@ import re
 
 
 
-import re
-
 def extract_poll_options(story_text):
     """
     Extracts up to 3 clean poll options from a story.
