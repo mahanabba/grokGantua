@@ -21,7 +21,7 @@ def extract_poll_options(story_text):
     for i in range(3):
         if i < len(matches):
             clean = matches[i].strip()
-            clipped = clean[:25]  # hard limit for X poll API
+            clipped = clean[:20]  # hard limit for X poll API
             options.append(clipped)
         else:
             options.append(f"Choice {i+1}")  # fallback short default
