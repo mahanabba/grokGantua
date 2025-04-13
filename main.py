@@ -44,19 +44,28 @@ ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 X_API_CREATE_POST_URL = "https://api.x.com/2/tweets"
 
 def generate_story(prompt):
-    "You are a highly intelligent AI story generator that creates engaging, interactive 'Choose Your Own Adventure' narratives.",
-        },
-        {"role": "user", "content": prompt},
-    ]
-    
-    completion = client.chat.completions.create(
-        model="grok-3-mini",  # or "grok-3-mini-fast-beta"
-        reasoning_effort="high",
-        messages=messages,
-        temperature=0.8,
-    )
-    
-    return completion.choices[0].message.content.strip()
+    """
+    Generate an adventure story using the Grok-3 API.
+    Returns the generated text or an empty string if an error occurs.
+    """
+    try:
+        messages = [
+            {
+                "role": "system", 
+                "content": "You are a highly intelligent AI story generator that creates engaging, interactive 'Choose Your Own Adventure' narratives."
+            },
+            {"role": "user", "content": prompt},
+        ]
+        completion = client.chat.completions.create(
+            model="grok-3-mini",  # or "grok-3-mini-fast-beta"
+            reasoning_effort="high",
+            messages=messages,
+            temperature=0.6,
+        )
+        return completion.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"❌ Error generating story: {e}")
+        return ""
 
 
 
