@@ -29,13 +29,13 @@ def extract_poll_options(story_text):
 # Load environment variables from .env
 load_dotenv()
 
-# Initialize the OpenAI-style client configured for x.ai’s Grok‑3 API v2.
+# Initialize the OpenAI-style client configured for x.ai’s Grok‑3 API v1.
 client = OpenAI(
     base_url="https://api.x.ai/v1",
     api_key=os.getenv("XAI_API_KEY"),
 )
 
-# X (formerly Twitter) credentials from your environment.
+# X credentials from your environment.
 API_KEY = os.getenv("API_KEY")
 API_SECRET = os.getenv("API_SECRET")
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
@@ -141,7 +141,7 @@ def main():
             prompt = (
                 f"Continue the adventure narrative using the previous poll's winning option: '{winning_option}'. "
                 "Craft a new 150-225 word segment in second-person perspective that builds on the previous story and ends "
-                "with three new choices labeled 'Option 1:', 'Option 2:' and 'Option 3:' for X's next move."
+                "with three new choices labeled 'Option 1:', 'Option 2:' and 'Option 3:' for X's next move. These options MUST be less than 25 characters each"
             )
         
         # Generate the story using the Grok‑3 API.
