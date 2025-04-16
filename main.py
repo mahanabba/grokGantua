@@ -175,7 +175,7 @@ def main():
             break
         
         # The delay before the next post is 4 minutes longer than the current poll duration.
-        next_delay_seconds = (poll_duration_minutes + 4) * 60
+        next_delay_seconds = 60 #(poll_duration_minutes + 4) * 60
         print(f"\nWaiting for {next_delay_seconds} seconds before fetching poll results...")
         time.sleep(next_delay_seconds)
         
