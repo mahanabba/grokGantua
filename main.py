@@ -117,9 +117,9 @@ def get_poll_results(tweet_id):
 
 def main():
     # Set initial parameters.
-    poll_duration_current = 5  # starting poll duration in minutes
+    poll_duration_current = 20  # starting poll duration in minutes
     
-    poll_duration_increment = 1 #random.randint(5,180)   each post's poll duration increases by this many minutes
+    poll_duration_increment = 5 #random.randint(5,180)   each post's poll duration increases by this many minutes
     previous_data = None
 
     # Initial prompt for the adventure narrative.
