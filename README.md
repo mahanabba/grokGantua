@@ -27,7 +27,9 @@ Get Lil X home... or break the multiverse trying.
 🚀 How It Works
 
 The story begins: a prompt sets Lil X in motion
-Grok-3 Mini generates the next chapter + 3 decisions
+Grok-3 Mini generates the next chapter + 2 decisions: one subjectively morally good, one bad
 Those decisions are clipped and posted as an X poll
+The decisions will be remembered and implemented as a karma system, leading to either a "good" ending or a "bad" ending
 Followers vote — and the winning option shapes the next chapter
+You decide the fate of Lil X
 Rinse, recurse, transcend
